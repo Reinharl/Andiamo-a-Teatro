@@ -25,4 +25,11 @@ public class Utente {
     @Column
     private String phoneNumber;
 
+    public Utente(String name, String surname, String address, String email, String phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 }
