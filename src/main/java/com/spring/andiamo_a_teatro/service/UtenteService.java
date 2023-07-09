@@ -13,19 +13,19 @@ import java.util.Optional;
 @Service
 public class UtenteService {
 
-    static Logger logger = LoggerFactory.getLogger(UtenteService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UtenteService.class);
 
     @Autowired
-    UtenteRepository utenteRepository;
+    private UtenteRepository utenteRepository;
 
     public List<Utente> findAll() {
-        logger.info("[FINDALL USER]: ");
+        logger.info("Get all users");
 
         return utenteRepository.findAll();
     }
 
     public Optional<Utente> findByID(Long id) {
-        logger.info("[GETBYID USER]: " + id);
+        logger.info("Get user by id: " + id);
 
         if (id == 0)
             return Optional.empty();
@@ -33,20 +33,30 @@ public class UtenteService {
         return utenteRepository.findById(id);
     }
 
-    public Utente save(Utente user) {
-        logger.info("[SAVE USER]: " + user);
+    public void save(Utente user) {
+        logger.info("Save user: " + user);
 
-        return utenteRepository.save(user);
+        utenteRepository.save(user);
     }
 
-    public Utente update(Utente user) {
-        logger.info("[UPDATE USER]: " + user);
+    public void update(Utente user) {
+        Optional<Utente> optionalUtente = utenteRepository.findById(user.getId());
+        if (optionalUtente.isEmpty()) return;
 
-        return utenteRepository.save(user);
+        System.out.println("test");
+        logger.info("Update user: " + user);
+
+        utenteRepository.save(user);
+    }
+
+    public void deleteAll() {
+        logger.info("Delete all users");
+
+        utenteRepository.deleteAll();
     }
 
     public void deleteByID(Long id) {
-        logger.info("[DELETE USER]: " + id);
+        logger.info("Delete user: " + id);
 
         utenteRepository.deleteById(id);
     }

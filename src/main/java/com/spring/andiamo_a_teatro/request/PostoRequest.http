@@ -1,0 +1,35 @@
+### Save Seat 1
+POST http://localhost:8080/venue/1/hall/302/create
+Content-Type: application/json
+
+{
+  "lineNumber": 1,
+  "seatNumber": 1
+}
+
+### Save Seat 2
+POST http://localhost:8080/venue/1/hall/302/create
+Content-Type: application/json
+
+{
+  "lineNumber": 1,
+  "seatNumber": 2
+}
+
+### Save Seat 3
+POST http://localhost:8080/venue/1/hall/304/create
+Content-Type: application/json
+
+{
+  "lineNumber": 1,
+  "seatNumber": 1
+}
+
+### Save Seat 4
+POST http://localhost:8080/venue/1/hall/303/create
+Content-Type: application/json
+
+{
+  "lineNumber": 1,
+  "seatNumber": 1
+}

@@ -1,0 +1,10 @@
+### Save Vanue
+POST http://localhost:8080/venue/create
+Content-Type: application/json
+
+{
+  "name": "Politeama di Bari",
+  "address": "Via uno",
+  "city": "Bari",
+  "isIndoors": true
+}

@@ -1,0 +1,21 @@
+### Save Live Show 1
+POST http://localhost:8080/venue/1/hall/302/live-show/create
+Content-Type: application/json
+
+{
+  "date": "2050-01-01",
+  "genre": "Commedia",
+  "durationInMinutes": 90,
+  "price": 12.98
+}
+
+### Save Live Show 2
+POST http://localhost:8080/venue/1/hall/304/live-show/create
+Content-Type: application/json
+
+{
+  "date": "2050-01-01",
+  "genre": "Dramma",
+  "durationInMinutes": 120,
+  "price": 10.98
+}

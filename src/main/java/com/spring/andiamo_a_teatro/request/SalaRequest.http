@@ -1,0 +1,23 @@
+### Save Hall 1
+POST http://localhost:8080/venue/1/hall/create
+Content-Type: application/json
+
+{
+  "name": "Sala 1"
+}
+
+### Save Hall 2
+POST http://localhost:8080/venue/1/hall/create
+Content-Type: application/json
+
+{
+  "name": "Sala 2"
+}
+
+### Save Hall 3
+POST http://localhost:8080/venue/1/hall/create
+Content-Type: application/json
+
+{
+  "name": "Sala 3"
+}
