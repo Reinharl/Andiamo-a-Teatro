@@ -18,7 +18,7 @@ public class Posto {
     private int lineNumber;
     @Column(nullable = false)
     private int seatNumber;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Sala hall;
 
 }

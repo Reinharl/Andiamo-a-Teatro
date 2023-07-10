@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class SalaService {
 
-    Logger logger = LoggerFactory.getLogger(SalaService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SalaService.class);
 
     @Autowired
     private SalaRepository salaRepository;

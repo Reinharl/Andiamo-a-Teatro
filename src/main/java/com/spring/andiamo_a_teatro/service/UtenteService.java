@@ -24,7 +24,7 @@ public class UtenteService {
         return utenteRepository.findAll();
     }
 
-    public Optional<Utente> findByID(Long id) {
+    public Optional<Utente> findById(Long id) {
         logger.info("Get user by id: " + id);
 
         if (id == 0)

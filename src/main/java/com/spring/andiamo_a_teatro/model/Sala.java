@@ -18,7 +18,7 @@ public class Sala {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Sede venue;
 
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SpettacoloService {
 
-    Logger logger = LoggerFactory.getLogger(SpettacoloService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SpettacoloService.class);
 
     @Autowired
     private SpettacoloRepository spettacoloRepository;

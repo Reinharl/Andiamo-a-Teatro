@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class SedeService {
 
-    Logger logger = LoggerFactory.getLogger(SedeService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SedeService.class);
 
     @Autowired
     private SedeRepository sedeRepository;

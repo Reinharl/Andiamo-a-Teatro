@@ -19,7 +19,7 @@ public class Biglietto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private LocalDate dateOfPurchase;
+    private LocalDate dateOfPurchase = LocalDate.now();
     @ManyToOne
     private Utente user;
     @ManyToOne

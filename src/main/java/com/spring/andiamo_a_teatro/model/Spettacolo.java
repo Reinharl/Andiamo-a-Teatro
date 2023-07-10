@@ -24,6 +24,6 @@ public class Spettacolo {
     private int durationInMinutes;
     @Column(nullable = false)
     private double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Sala hall;
 }

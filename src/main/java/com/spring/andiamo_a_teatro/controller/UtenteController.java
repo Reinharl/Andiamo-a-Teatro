@@ -28,7 +28,7 @@ public class UtenteController {
 
     @GetMapping("/get/{id}")
     public Optional<Utente> getUser(@PathVariable Long id) {
-        return utenteService.findByID(id);
+        return utenteService.findById(id);
     }
 
     @GetMapping("/get-all")
