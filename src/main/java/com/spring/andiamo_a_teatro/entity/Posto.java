@@ -1,30 +1,24 @@
-package com.spring.andiamo_a_teatro.model;
+package com.spring.andiamo_a_teatro.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Biglietto {
+public class Posto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private LocalDate dateOfPurchase = LocalDate.now();
+    private int lineNumber;
+    @Column(nullable = false)
+    private int seatNumber;
     @ManyToOne
-    private Utente user;
-    @ManyToOne
-    private Posto seat;
-    @ManyToOne
-    private Spettacolo show;
+    private Sala hall;
 
 }

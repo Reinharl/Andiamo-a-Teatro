@@ -1,8 +1,7 @@
-package com.spring.andiamo_a_teatro.model;
+package com.spring.andiamo_a_teatro.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,20 +9,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Utente {
+public class Sede {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private String firstName;
-    @Column(nullable = false)
-    private String lastName;
+    private String name;
     @Column(nullable = false)
     private String address;
-    @Column(nullable = false, unique = true)
-    private String email;
-    @Column
-    private String phoneNumber;
+    @Column(nullable = false)
+    private String city;
+    @Column(nullable = false)
+    private Boolean isIndoors;
+
 }

@@ -1,23 +1,42 @@
 ### Save Hall 1
-POST http://localhost:8080/venue/1/hall/create
+POST http://localhost:8080/hall/create
 Content-Type: application/json
 
 {
-  "name": "Sala 1"
+  "name": "Sala 1",
+  "venue": {
+    "id": 1,
+    "address": "Via uno",
+    "city": "Bari",
+    "isIndoors": true,
+    "name": "Politeama di Bari"
+  }
 }
 
 ### Save Hall 2
-POST http://localhost:8080/venue/1/hall/create
+POST http://localhost:8080/hall/create
 Content-Type: application/json
 
 {
-  "name": "Sala 2"
+  "name": "Sala 2",
+  "venue": {
+    "id": 1,
+    "address": "Via uno",
+    "isIndoors": true,
+    "name": "Politeama di Bari"
+  }
 }
 
 ### Save Hall 3
-POST http://localhost:8080/venue/1/hall/create
+POST http://localhost:8080/hall/create
 Content-Type: application/json
 
 {
-  "name": "Sala 3"
+  "name": "Sala 3",
+  "venue": {
+    "id": 1,
+    "address": "Via uno",
+    "isIndoors": true,
+    "name": "Politeama di Bari"
+  }
 }

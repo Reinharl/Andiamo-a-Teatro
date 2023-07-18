@@ -1,7 +1,9 @@
 package com.spring.andiamo_a_teatro.controller;
 
-import com.spring.andiamo_a_teatro.model.Utente;
+import com.spring.andiamo_a_teatro.entity.Spettacolo;
+import com.spring.andiamo_a_teatro.entity.Utente;
 import com.spring.andiamo_a_teatro.service.UtenteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +18,14 @@ public class UtenteController {
     private UtenteService utenteService;
 
     @PostMapping("/register")
-    public void saveUser(@RequestBody Utente user) {
+    public boolean saveUser(@Valid @RequestBody Utente user) {
         //TODO Implementare la logica di sicurezza
-        utenteService.save(user);
+        return utenteService.save(user);
     }
 
     @PutMapping("/update")
-    public void updateUser(@RequestBody Utente user) {
-        utenteService.update(user);
+    public boolean updateUser(@Valid @RequestBody Utente user) {
+        return utenteService.update(user);
     }
 
     @GetMapping("/get/{id}")
@@ -38,14 +40,25 @@ public class UtenteController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteUserById(@PathVariable Long id) {
+    public boolean deleteUserById(@PathVariable Long id) {
 
-        utenteService.deleteByID(id);
+        return utenteService.deleteByID(id);
     }
 
     @DeleteMapping("/delete-all")
-    public void deleteAll() {
-        utenteService.deleteAll();
+    public boolean deleteAll() {
+        return utenteService.deleteAll();
+    }
+
+    @PostMapping("/buy-ticket")
+    public Double buyTicket(@RequestParam Long id_user, @RequestParam Long id_show, @RequestParam Long id_seat) {
+        return utenteService.buyTicket(id_user, id_show, id_seat);
+    }
+
+    @GetMapping("/prompts")
+    public List<Spettacolo> promptsLiveShow(@RequestParam Long id_user) {
+
+        return utenteService.prompts(id_user);
     }
 
 }

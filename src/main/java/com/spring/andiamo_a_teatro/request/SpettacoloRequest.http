@@ -1,21 +1,65 @@
 ### Save Live Show 1
-POST http://localhost:8080/venue/1/hall/302/live-show/create
+POST http://localhost:8080/live-show/create
 Content-Type: application/json
 
 {
-  "date": "2050-01-01",
+  "date": "2050-01-01T19:00",
   "genre": "Commedia",
   "durationInMinutes": 90,
-  "price": 12.98
+  "price": 12.98,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }
 
 ### Save Live Show 2
-POST http://localhost:8080/venue/1/hall/304/live-show/create
+POST http://localhost:8080/live-show/create
 Content-Type: application/json
 
 {
-  "date": "2050-01-01",
+  "date": "2050-01-01T21:00",
   "genre": "Dramma",
   "durationInMinutes": 120,
-  "price": 10.98
+  "price": 10.98,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
+}
+
+### Save Live Show 3
+POST http://localhost:8080/live-show/create
+Content-Type: application/json
+
+{
+  "date": "2050-01-01T21:30",
+  "genre": "Horror",
+  "durationInMinutes": 30,
+  "price": 7.98,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }

@@ -1,7 +1,8 @@
-package com.spring.andiamo_a_teatro.model;
+package com.spring.andiamo_a_teatro.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,16 +10,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Posto {
+@Builder
+public class Sala {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    private int lineNumber;
-    @Column(nullable = false)
-    private int seatNumber;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Sala hall;
+    private String name;
+    @ManyToOne
+    private Sede venue;
 
 }

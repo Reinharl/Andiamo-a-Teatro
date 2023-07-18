@@ -1,35 +1,99 @@
 ### Save Seat 1
-POST http://localhost:8080/venue/1/hall/302/create
+POST http://localhost:8080/seat/create
 Content-Type: application/json
 
 {
   "lineNumber": 1,
-  "seatNumber": 1
+  "seatNumber": 1,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }
 
 ### Save Seat 2
-POST http://localhost:8080/venue/1/hall/302/create
+POST http://localhost:8080/seat/create
 Content-Type: application/json
 
 {
   "lineNumber": 1,
-  "seatNumber": 2
+  "seatNumber": 2,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }
 
 ### Save Seat 3
-POST http://localhost:8080/venue/1/hall/304/create
+POST http://localhost:8080/seat/create
 Content-Type: application/json
 
 {
-  "lineNumber": 1,
-  "seatNumber": 1
+  "lineNumber": 2,
+  "seatNumber": 1,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }
 
 ### Save Seat 4
-POST http://localhost:8080/venue/1/hall/303/create
+POST http://localhost:8080/seat/create
 Content-Type: application/json
 
 {
-  "lineNumber": 1,
-  "seatNumber": 1
+  "lineNumber": 2,
+  "seatNumber": 2,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
+}
+
+### Save Seat 5
+POST http://localhost:8080/seat/create
+Content-Type: application/json
+
+{
+  "lineNumber": 3,
+  "seatNumber": 1,
+  "hall": {
+    "id": 1,
+    "name": "Sala 1",
+    "venue": {
+      "id": 1,
+      "address": "Via uno",
+      "city": "Bari",
+      "isIndoors": true,
+      "name": "Politeama di Bari"
+    }
+  }
 }

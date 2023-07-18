@@ -46,4 +46,8 @@ DELETE http://localhost:8080/user/delete-all
 ### Delete User By Id
 DELETE http://localhost:8080/user/delete/1
 
+### Buy Ticket
+POST http://localhost:8080/user/buy-ticket?id_user=1&id_show=3&id_seat=1
 
+### Prompts Show
+GET http://localhost:8080/user/prompts?id_user=1
