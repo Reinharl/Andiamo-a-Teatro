@@ -47,7 +47,7 @@ DELETE http://localhost:8080/user/delete-all
 DELETE http://localhost:8080/user/delete/1
 
 ### Buy Ticket
-POST http://localhost:8080/user/buy-ticket?id_user=1&id_show=3&id_seat=1
+POST http://localhost:8080/user/buy-ticket?id_user=1&id_show=1&id_seat=1
 
 ### Find Show By City And Date
 GET http://localhost:8080/user/find?city=Bari&date=2023-09-01

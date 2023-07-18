@@ -4,6 +4,7 @@ import com.spring.andiamo_a_teatro.entity.Biglietto;
 import com.spring.andiamo_a_teatro.entity.Posto;
 import com.spring.andiamo_a_teatro.entity.Spettacolo;
 import com.spring.andiamo_a_teatro.entity.Utente;
+import com.spring.andiamo_a_teatro.exception.*;
 import com.spring.andiamo_a_teatro.repository.BigliettoRepository;
 import com.spring.andiamo_a_teatro.repository.PostoRepository;
 import com.spring.andiamo_a_teatro.repository.SpettacoloRepository;
@@ -85,30 +86,36 @@ public class UtenteServiceImpl implements UtenteService {
     }
 
     @Override
-    public Double buyTicket(Long id_utente, Long id_show, Long id_seat) {
+    public Double buyTicket(Long id_utente, Long id_show, Long id_seat) throws
+            UnregisteredUserException,
+            NonExistentShowException,
+            NonExistentSeatException,
+            ShowException,
+            SeatException,
+            TicketException {
 
         Optional<Utente> optionalUtente = utenteRepository.findById(id_utente);
-        if (optionalUtente.isEmpty()) throw new IllegalArgumentException("l'utente non è registrato!");
+        if (optionalUtente.isEmpty()) throw new UnregisteredUserException("Unregistered User");
         Utente utente = optionalUtente.get();
 
 
         Optional<Spettacolo> optionalLiveShow = liveShowRepository.findById(id_show);
-        if (optionalLiveShow.isEmpty()) throw new IllegalArgumentException("lo show non esiste!");
+        if (optionalLiveShow.isEmpty()) throw new NonExistentShowException("Non Existent Show");
         Spettacolo liveShow = optionalLiveShow.get();
 
         Optional<Posto> optionalSeat = seatRepository.findById(id_seat);
-        if (optionalSeat.isEmpty()) throw new IllegalArgumentException("il posto non esiste!");
+        if (optionalSeat.isEmpty()) throw new NonExistentSeatException("Non Existent Seat");
         Posto seat = optionalSeat.get();
 
         if (liveShow.getDate().isBefore(LocalDateTime.now()))
-            throw new IllegalArgumentException("lo spettacolo è già finito!");
+            throw new ShowException("Show Already Over");
 
 
         if (!ticketRepository.findAllBySeat_IdAndShow_Id(id_seat, id_show).isEmpty())
-            throw new IllegalArgumentException("posto già prenotato");
+            throw new SeatException("Seat Already Booked");
 
         if (ticketRepository.findAllByUser_IdAndShow_Id(id_utente, id_show).size() >= 4)
-            throw new IllegalArgumentException("limite di biglietti massimi per lo spettacolo superato");
+            throw new TicketException("Maximum Number of Tickets Booked Exceeded");
 
         Biglietto biglietto = Biglietto.builder()
                 .dateOfPurchase(LocalDate.now())
@@ -131,9 +138,9 @@ public class UtenteServiceImpl implements UtenteService {
     }
 
     @Override
-    public List<Spettacolo> prompts(Long id_utente) {
+    public List<Spettacolo> prompts(Long id_utente) throws UnregisteredUserException {
         Optional<Utente> optionalUtente = utenteRepository.findById(id_utente);
-        if (optionalUtente.isEmpty()) throw new IllegalArgumentException("l'utente non è registrato!");
+        if (optionalUtente.isEmpty()) throw new UnregisteredUserException("Unregistered User");
 
         logger.info("Prompts LiveShow of User: " + id_utente);
 

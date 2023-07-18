@@ -2,6 +2,7 @@ package com.spring.andiamo_a_teatro.controller;
 
 import com.spring.andiamo_a_teatro.entity.Spettacolo;
 import com.spring.andiamo_a_teatro.entity.Utente;
+import com.spring.andiamo_a_teatro.exception.*;
 import com.spring.andiamo_a_teatro.service.UtenteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,13 @@ public class UtenteController {
     }
 
     @PostMapping("/buy-ticket")
-    public Double buyTicket(@RequestParam Long id_user, @RequestParam Long id_show, @RequestParam Long id_seat) {
+    public Double buyTicket(@RequestParam Long id_user, @RequestParam Long id_show, @RequestParam Long id_seat) throws
+            UnregisteredUserException,
+            NonExistentShowException,
+            NonExistentSeatException,
+            TicketException,
+            ShowException,
+            SeatException {
 
         return utenteService.buyTicket(id_user, id_show, id_seat);
     }
@@ -64,7 +71,7 @@ public class UtenteController {
     }
 
     @GetMapping("/prompts")
-    public List<Spettacolo> promptsLiveShow(@RequestParam Long id_user) {
+    public List<Spettacolo> promptsLiveShow(@RequestParam Long id_user) throws UnregisteredUserException {
 
         return utenteService.prompts(id_user);
     }
