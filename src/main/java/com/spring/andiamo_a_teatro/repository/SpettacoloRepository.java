@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,6 +13,15 @@ import java.util.List;
 public interface SpettacoloRepository extends JpaRepository<Spettacolo, Long> {
 
     List<Spettacolo> findAllByHall_Id(Long idHall);
+
+    List<Spettacolo> findAllByHall_Venue_CityAndDateBetween(String city, LocalDateTime startTime, LocalDateTime endTime);
+
+    default List<Spettacolo> findByCityAndDate(String city, LocalDate date) {
+        LocalDateTime startTime = date.atStartOfDay();
+        LocalDateTime endTime = date.atTime(23, 59, 59);
+
+        return findAllByHall_Venue_CityAndDateBetween(city, startTime, endTime);
+    }
 
     @Query("SELECT s FROM Spettacolo s " +
             "WHERE s.genre IN (" +

@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +53,14 @@ public class UtenteController {
 
     @PostMapping("/buy-ticket")
     public Double buyTicket(@RequestParam Long id_user, @RequestParam Long id_show, @RequestParam Long id_seat) {
+
         return utenteService.buyTicket(id_user, id_show, id_seat);
+    }
+
+    @GetMapping("/find")
+    public List<Spettacolo> findByCityAndDate(@RequestParam String city, @RequestParam LocalDate date) {
+
+        return utenteService.findByCityAndDate(city, date);
     }
 
     @GetMapping("/prompts")

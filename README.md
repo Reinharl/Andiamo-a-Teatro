@@ -24,7 +24,6 @@ Le funzionalità che il sistema deve poter garantire sono le seguenti:
 1) Gli utenti devono potersi registrare inserendo i loro dati personali.
 2) Gli utenti registrati devono poter prenotare dei posti disponibili in uno spettacolo, e il sistema
    deve calcolare il prezzo da pagare per l’utente.
-3) L’utente deve poter ricercare gli spettacoli disponibili inserendo la città e una data, e
-   facoltativamente un genere e un luogo specifico.
+3) L’utente deve poter ricercare gli spettacoli disponibili inserendo la città e una data.
 4) Poter ricevere dal sistema dei suggerimenti sui prossimi spettacoli, in particolare deve ritornare
    tutti gli spettacoli del prossimo mese che hanno lo stesso genere degli ultimi 3 spettacoli visti.

@@ -124,9 +124,18 @@ public class UtenteServiceImpl implements UtenteService {
     }
 
     @Override
+    public List<Spettacolo> findByCityAndDate(String city, LocalDate date) {
+        logger.info("Find LiveShow from City: " + city + " and Date: " + date);
+
+        return liveShowRepository.findByCityAndDate(city, date);
+    }
+
+    @Override
     public List<Spettacolo> prompts(Long id_utente) {
         Optional<Utente> optionalUtente = utenteRepository.findById(id_utente);
         if (optionalUtente.isEmpty()) throw new IllegalArgumentException("l'utente non è registrato!");
+
+        logger.info("Prompts LiveShow of User: " + id_utente);
 
         return liveShowRepository.findSuggestedShowsByUser(id_utente);
     }
